@@ -19,6 +19,8 @@ services:
 
   php-fpm:
     # For the php-fpm service, we will use our common PHP-FPM Dockerfile with the development target
+    ports:
+      - "8000:8000"
     build:
       context: .
       dockerfile: ./docker/common/php-fpm/Dockerfile

@@ -26,6 +26,12 @@ RUN if [ "${XDEBUG_ENABLED}" = "true" ]; then \
     echo "xdebug.start_with_request=yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini ; \
 fi
 
+USER root
+
+RUN apt-get update && apt-get install -y libonig-dev libzip-dev libicu-dev libxml2-dev libcurl4-openssl-dev \
+    && docker-php-ext-install pdo_mysql intl opcache zip bcmath \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
 # Add ARGs for syncing permissions
 ARG UID=1000
 ARG GID=1000
