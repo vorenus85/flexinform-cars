@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->integer('client_id')->index();
+            $table->unsignedBigInteger('client_id');
             $table->string('type'); // enum
             $table->timestamp('registered');
             $table->boolean('ownbrand');
             $table->integer('accidents');
             $table->timestamps();
+            
+            // relations
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
         });
-
-        // relations
-        $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
     }
 
     /**

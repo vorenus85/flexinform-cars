@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->integer('clients_id')->index();
-            $table->integer('car_id')->index();
+            $table->unsignedBigInteger('client_id');
+            $table->unsignedBigInteger('car_id');
             $table->integer('log_number');
             $table->string('event'); //enum
             $table->timestamp('event_time')->nullable();
