@@ -78,7 +78,7 @@ services:
       - MYSQL_DATABASE=carservice
       - MYSQL_ROOT_PASSWORD=secret123
       - MYSQL_ROOT_HOST=%
-      - MYSQL_USER=admin
+      - MYSQL_USER=my_user
       - MYSQL_PASSWORD=secret123
     volumes:
       - mysql-data-development:/var/lib/mysql
