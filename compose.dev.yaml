@@ -71,6 +71,7 @@ services:
       - ./:/var/www
     networks:
       - laravel-development
+    command: sh -c "npm install && npm run dev"
 
   mysql:
     image: mysql:8.0

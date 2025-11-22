@@ -15,5 +15,10 @@ php artisan config:clear
 php artisan route:clear
 php artisan view:clear
 
+# ✅ AUTOMATIC MIGRATE + SEED (DEV ONLY!)
+echo "Running migrations and seeders..."
+php artisan migrate:fresh --force
+php artisan db:seed --force
+
 # Run the default command (e.g., php-fpm or bash)
 exec "$@"
